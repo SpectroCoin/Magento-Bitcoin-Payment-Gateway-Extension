@@ -7,12 +7,16 @@ This module integrates [SpectroCoin](https://spectrocoin.com/) Payments with [Ma
 
 1. Upload files to Magento main folder.
 2. Generate private and public keys
-2.1 Private key:
+    1. Private key:
+    ```shell
     # generate a 2048-bit RSA private key
     openssl genrsa -out "C:\private" 2048
-2.2 Public key:
+    ```
+    2. Public key:
+    ```shell
     # output public key portion in PEM format
     openssl rsa -in "C:\private" -pubout -outform PEM -out "C:\public"
+    ```
 
 **CONFIGURATION**
 
