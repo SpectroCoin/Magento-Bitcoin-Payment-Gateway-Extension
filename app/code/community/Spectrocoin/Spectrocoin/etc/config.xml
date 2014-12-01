@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Spectrocoin_Spectrocoin>
+            <version>1.0</version>
+        </Spectrocoin_Spectrocoin>
+    </modules>
+    <frontend>
+        <routers>
+            <spectrocoin>
+                <use>standard</use>
+                <args>
+                    <module>Spectrocoin_Spectrocoin</module>
+                    <frontName>spectrocoin</frontName>
+                </args>
+            </spectrocoin>
+        </routers>
+    </frontend>
+    <global>
+        <blocks>
+            <checkout>
+                <rewrite>
+                    <cart_totals>Spectrocoin_Spectrocoin_Block_LastPayment</cart_totals>
+                </rewrite>
+            </checkout>
+        </blocks>
+
+        <models>
+            <Spectrocoin>
+                <class>Spectrocoin_Spectrocoin_Model</class>
+            </Spectrocoin>
+        </models>
+
+        <resources>
+            <Spectrocoin_setup>
+                <setup>
+                    <module>Spectrocoin_Spectrocoin</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </Spectrocoin_setup>
+            <Spectrocoin_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </Spectrocoin_write>
+            <Spectrocoin_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </Spectrocoin_read>
+        </resources>
+    </global>
+
+    <default>
+        <payment>
+            <Spectrocoin>
+                <active>1</active>
+                <model>Spectrocoin/paymentMethod</model>
+                <title>Bitcoin provided by SpectroCoin</title>
+                <receive_currency>BTC</receive_currency>
+
+                <payment_action>authorize</payment_action>
+                <callback_secret>generate</callback_secret>
+            </Spectrocoin>
+        </payment>
+    </default>
+</config>

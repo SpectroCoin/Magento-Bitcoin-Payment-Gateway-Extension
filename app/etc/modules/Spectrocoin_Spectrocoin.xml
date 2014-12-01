@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Spectrocoin_Spectrocoin>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Spectrocoin_Spectrocoin>
+    </modules>
+</config>
