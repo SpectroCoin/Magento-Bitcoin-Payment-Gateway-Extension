@@ -52,10 +52,6 @@ class Spectrocoin_Spectrocoin_Model_PaymentMethod extends Mage_Payment_Model_Met
     /**
      * Can save credit card information for future processing?
      */
-    protected $_canSaveCc = false;
-    /**
-     * Converts units to BTC
-     */
     public function authorize(Varien_Object $payment, $amount)
     {
         require_once Mage::getModuleDir('', 'Spectrocoin_Spectrocoin').DS.'lib'.DS.'SCMerchantClient'.DS.'SCMerchantClient.php';
