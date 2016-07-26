@@ -23,17 +23,19 @@ class CreateOrderRequest
 	 * @param $failureUrl
 	 * @param string $payCurrency
 	 */
-	function __construct($orderId, $payAmount, $receiveAmount, $description, $culture, $callbackUrl, $successUrl, $failureUrl, $payCurrency = 'BTC')
+
+	function __construct($orderId, $payCurrency, $payAmount, $receiveCurrency, $receiveAmount, $description, $culture, $callbackUrl, $successUrl, $failureUrl)
 	{
 		$this->orderId = $orderId;
+		$this->payCurrency = $payCurrency;
 		$this->payAmount = $payAmount;
+		$this->receiveCurrency = $receiveCurrency;
 		$this->receiveAmount = $receiveAmount;
 		$this->description = $description;
 		$this->culture = $culture;
 		$this->callbackUrl = $callbackUrl;
 		$this->successUrl = $successUrl;
 		$this->failureUrl = $failureUrl;
-		$this->payCurrency = $payCurrency;
 	}
 
 	/**
@@ -68,6 +70,13 @@ class CreateOrderRequest
         return FormattingUtil::formatCurrency($this->receiveAmount == null ? 0.0 : $this->receiveAmount);
     }
 
+	/**
+	 * @return string
+	 */
+	public function getReceiveCurrency()
+	{
+		return $this->receiveCurrency;
+	}
 	/**
 	 * @return string
 	 */

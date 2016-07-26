@@ -48,16 +48,6 @@
                             <show_in_store>0</show_in_store>
                         </app_id>
 
-                        <receive_currency translate="label">
-                            <label>Receive currency</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>Spectrocoin/currencies</source_model>
-                            <sort_order>4</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </receive_currency>
-
                         <private_key_file translate="label">
                             <label>Private key</label>
                             <frontend_type>file</frontend_type>

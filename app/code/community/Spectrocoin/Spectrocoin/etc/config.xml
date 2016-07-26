@@ -59,8 +59,6 @@
                 <active>1</active>
                 <model>Spectrocoin/paymentMethod</model>
                 <title>Bitcoin provided by SpectroCoin</title>
-                <receive_currency>BTC</receive_currency>
-
                 <payment_action>authorize</payment_action>
                 <callback_secret>generate</callback_secret>
             </Spectrocoin>

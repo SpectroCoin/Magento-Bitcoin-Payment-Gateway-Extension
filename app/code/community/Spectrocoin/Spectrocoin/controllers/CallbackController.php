@@ -15,15 +15,14 @@ class Spectrocoin_Spectrocoin_CallbackController extends Mage_Core_Controller_Fr
     {
         require_once Mage::getModuleDir('', 'Spectrocoin_Spectrocoin').DS.'lib'.DS.'SCMerchantClient'.DS.'SCMerchantClient.php';
         $privateKeyFilePath = Mage::getBaseDir('media') . '/spectrocoin/keys/' . Mage::getStoreConfig('payment/Spectrocoin/private_key_file');
-        $publicKeyFilePath = Mage::getBaseDir('media') . '/spectrocoin/keys/' . Mage::getStoreConfig('payment/Spectrocoin/public_key_file');
         $merchantId = Mage::getStoreConfig('payment/Spectrocoin/merchant_id');
         $appId = Mage::getStoreConfig('payment/Spectrocoin/app_id');
+        $merchantApiUrl = 'https://spectrocoin.com/api/merchant/1';
         if (!file_exists($privateKeyFilePath) || !is_file($privateKeyFilePath)
-            || !file_exists($publicKeyFilePath) || !is_file($publicKeyFilePath)
-            || !$merchantId || !$appId) {
-            exit;
-        }
-        $this->client = new SCMerchantClient($privateKeyFilePath, $publicKeyFilePath, $merchantId, $appId);
+                || !$merchantId || !$appId) {
+            exit('No private key file found or wrong your merchant/app(ID)');
+       }
+        $this->client = new SCMerchantClient($merchantApiUrl, $merchantId, $appId);
         $this->callback = $this->client->parseCreateOrderCallback($_REQUEST);
     }
 
