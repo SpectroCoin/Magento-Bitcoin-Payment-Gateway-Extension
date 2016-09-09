@@ -79,11 +79,12 @@ class Spectrocoin_Spectrocoin_Model_PaymentMethod extends Mage_Payment_Model_Met
         $response = $client->createOrder($orderRequest);
         if ($response instanceof ApiError) {
             Mage::throwException(Mage::helper('payment')->__('Spectrocoin error. Error code: ' . $response->getCode() . '. Message: ' . $response->getMessage()));
-        } else {
-            $redirectUrl = $response->getRedirectUrl();
-            $payment->setIsTransactionPending(true);
-            Mage::getSingleton('customer/session')->setRedirectUrl($redirectUrl);
         }
+        else {
+                $redirectUrl = $response->getRedirectUrl();
+                $payment->setIsTransactionPending(true);
+                Mage::getSingleton('customer/session')->setRedirectUrl($redirectUrl);
+            }
         return $this;
     }
 }
