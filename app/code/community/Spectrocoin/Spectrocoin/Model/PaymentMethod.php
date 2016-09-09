@@ -77,7 +77,6 @@ class Spectrocoin_Spectrocoin_Model_PaymentMethod extends Mage_Payment_Model_Met
         $client->setPrivateMerchantKey($privateKey);
         $orderRequest = new CreateOrderRequest(null, "BTC", null, $currency, $amount, $orderDescription, "en", $callbackUrl, $successUrl, $cancelUrl);
         $response = $client->createOrder($orderRequest);
-		if ($response != null) {
         if ($response instanceof ApiError) {
             Mage::throwException(Mage::helper('payment')->__('Spectrocoin error. Error code: ' . $response->getCode() . '. Message: ' . $response->getMessage()));
         } else {
@@ -85,7 +84,6 @@ class Spectrocoin_Spectrocoin_Model_PaymentMethod extends Mage_Payment_Model_Met
             $payment->setIsTransactionPending(true);
             Mage::getSingleton('customer/session')->setRedirectUrl($redirectUrl);
         }
-    }
         return $this;
     }
 }
