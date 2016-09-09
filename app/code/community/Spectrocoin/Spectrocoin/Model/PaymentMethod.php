@@ -85,12 +85,6 @@ class Spectrocoin_Spectrocoin_Model_PaymentMethod extends Mage_Payment_Model_Met
                 $payment->setIsTransactionPending(true);
                 Mage::getSingleton('customer/session')->setRedirectUrl($redirectUrl);
             }
-
         return $this;
-    }
-
-    public function getOrderPlaceRedirectUrl()
-    {
-        return Mage::getSingleton('customer/session')->getRedirectUrl();
     }
 }
