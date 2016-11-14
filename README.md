@@ -1,7 +1,7 @@
 SpectroCoin Bitcoin Payment Extension
 ---------------
 
-This module integrates [SpectroCoin](https://spectrocoin.com/) Payments with [Magento](http://magento.com/) to accept [Bitcoin](https://bitcoin.org) payments.
+This is [SpectroCoin](https://spectrocoin.com/) Bitcoin Payment Module for Magento. This extenstion allows to easily accept bitcoins at your Magento website. You can find a [tutorial](https://www.youtube.com/watch?v=gfb9U4ySfRk) how to install this extenstion. You can also view video tutorial how to integrate bitcoin payments for Magento.
 
 **INSTALLATION**
 
