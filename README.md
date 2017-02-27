@@ -35,7 +35,7 @@ To succesfully use this plugin, you have to have a SpectroCoin Bitcoin wallet. Y
 **CONFIGURATION**
 
 1. Go to System -> Configuration -> Payment Methods -> SpectroCoin.
-2. Enter your Merchant Id, Application Id, Private key.
+2. Enter your Merchant Id, Project Id, Private key.
 
 **BENEFITS**
  
