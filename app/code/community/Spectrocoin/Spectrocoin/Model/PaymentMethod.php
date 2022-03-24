@@ -56,10 +56,10 @@ class Spectrocoin_Spectrocoin_Model_PaymentMethod extends Mage_Payment_Model_Met
     {
         require_once Mage::getModuleDir('', 'Spectrocoin_Spectrocoin').DS.'lib'.DS.'SCMerchantClient'.DS.'SCMerchantClient.php';
         $privateKeyFilePath = Mage::getBaseDir('media') . '/spectrocoin/keys/' . Mage::getStoreConfig('payment/Spectrocoin/private_key_file');
-        $merchantId = Mage::getStoreConfig('payment/Spectrocoin/merchant_id');
+        $userid = Mage::getStoreConfig('payment/Spectrocoin/merchant_id');
         $appId = Mage::getStoreConfig('payment/Spectrocoin/app_id');
         if (!file_exists($privateKeyFilePath) || !is_file($privateKeyFilePath)
-            || !$merchantId || !$appId) {
+            || !$userid || !$appId) {
             $this->scError('Check admin panel');
         }
 
@@ -71,7 +71,7 @@ class Spectrocoin_Spectrocoin_Model_PaymentMethod extends Mage_Payment_Model_Met
         $successUrl = Mage::app()->getStore()->getUrl('spectrocoin/callback/success?order=' . $order->getId());
         $cancelUrl = Mage::app()->getStore()->getUrl('spectrocoin/callback/cancel?order=' . $order->getId());
         $merchantApiUrl = 'https://spectrocoin.com/api/merchant/1';
-        $client = new SCMerchantClient($merchantApiUrl, $merchantId, $appId);
+        $client = new SCMerchantClient($merchantApiUrl, $userid, $appId);
 
         $privateKey = file_get_contents($privateKeyFilePath);
         $client->setPrivateMerchantKey($privateKey);

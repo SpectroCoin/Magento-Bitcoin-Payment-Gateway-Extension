@@ -3,8 +3,8 @@
 class OrderCallback
 {
 
-	private $merchantId;
-	private $apiId;
+	private $userid;
+	private $merchantapiid;
 	private $orderId;
 	private $payCurrency;
 	private $payAmount;
@@ -16,10 +16,10 @@ class OrderCallback
 	private $status;
 	private $sign;
 
-	function __construct($merchantId, $apiId, $orderId, $payCurrency, $payAmount, $receiveCurrency, $receiveAmount, $receivedAmount, $description, $orderRequestId, $status, $sign)
+	function __construct($userid, $merchantapiid, $orderId, $payCurrency, $payAmount, $receiveCurrency, $receiveAmount, $receivedAmount, $description, $orderRequestId, $status, $sign)
 	{
-		$this->merchantId = $merchantId;
-		$this->apiId = $apiId;
+		$this->userid = $userid;
+		$this->merchantapiid = $merchantapiid;
 		$this->orderId = $orderId;
 		$this->payCurrency = $payCurrency;
 		$this->payAmount = $payAmount;
@@ -35,17 +35,17 @@ class OrderCallback
 	/**
 	 * @return mixed
 	 */
-	public function getMerchantId()
+	public function getUserId()
 	{
-		return $this->merchantId;
+		return $this->userid;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public function getApiId()
+	public function getMerchantApiId()
 	{
-		return $this->apiId;
+		return $this->merchantapiid;
 	}
 
 	/**
@@ -132,8 +132,8 @@ class OrderCallback
 	{
 		$valid = true;
 
-		$valid &= $this->getMerchantId() > 0;
-		$valid &= $this->getApiId() > 0;
+		$valid &= $this->getUserId() > 0;
+		$valid &= $this->getMerchantApiId() > 0;
 		$valid &= $this->getOrderId() != '';
 		$valid &= $this->getPayCurrency() != '';
 		$valid &= $this->getPayAmount() > 0;
